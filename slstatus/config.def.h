@@ -67,14 +67,17 @@ static const char unknown_str[] = "n/a";
 static const struct arg args[] = {
 	/* function format          argument */
 	
-	{ ram_used,	 "| Ram: %s%% ",	 "NULL" },
-	{ wifi_essid,	 "| Connected: %s%% ",	 "wlan0" },
-	{ disk_free,	 "| Disk Free: %s ",	    "/home" },
-/*	{ vol_perc,	 "| %s%% ",	 "OpenBSD/FreeBSD" },
-*/	
-        { run_command,   "| VOL: %s  ",     "/home/smitp/suckless/slstatus/scripts/volume.sh" },
-	{ battery_perc,  "| Battery: %s%% ",	 "BAT0" },
-	{ datetime, "| %s | ",           "%d %b, %A, %R" },
+
+/*	{ run_command, "| BAT:  %s%% |", "cat /sys/class/power_supply/BAT0/capacity" },
+*/	{ ram_used,      "| Ram: %s ",                "NULL" },
+	{ run_command,   "| Connection: [%s] ",         "./scripts/net_status.sh" },
+	{ disk_free,     "| Disk Free: %s ",            "/home" },
+	{ run_command,   "| VOL: %s  ",                 "./scripts/volume.sh" },
+	{ datetime,      "| %s ",                       "%d %b, %A, %R" },
+
+/* Runs your script to show the text status */
+	{ run_command,   "| Battery: %s ",              "./scripts/ac_status.sh" },
+	{ battery_perc,  "[%s%%] |",                    "BAT0" },
 };
 
 

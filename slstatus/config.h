@@ -70,13 +70,13 @@ static const struct arg args[] = {
 
 /*	{ run_command, "| BAT:  %s%% |", "cat /sys/class/power_supply/BAT0/capacity" },
 */	{ ram_used,      "| Ram: %s ",                "NULL" },
-	{ run_command,   "| Connection: [%s] ",         "./scripts/net_status.sh" },
+	{ run_command,   "| Connection: [%s] ",         "~/Suckless/slstatus/scripts/net_status.sh" },
 	{ disk_free,     "| Disk Free: %s ",            "/home" },
-	{ run_command,   "| VOL: %s  ",                 "./scripts/volume.sh" },
+	{ run_command,   "| VOL: %s  ",                 "~/Suckless/slstatus/scripts/volume.sh" },
 	{ datetime,      "| %s ",                       "%d %b, %A, %R" },
 
 /* Runs your script to show the text status */
-	{ run_command,   "| Battery: %s ",              "./scripts/ac_status.sh" },
+	{ run_command,   "| Battery: %s ",              "~/Suckless/slstatus/scripts/ac_status.sh" },
 	{ battery_perc,  "[%s%%] |",                    "BAT0" },
 };
 
